@@ -1,6 +1,5 @@
-# QA Automation Homework Assignment (API)
-
 ## YourBourse Candidate Evaluation (QA Automation)
+
 
 Your task is to create a small working automation framework using [Cypress](https://docs.cypress.io/).
 
