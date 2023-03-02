@@ -2,7 +2,7 @@
 
 ## Project setup choices
 
-I wanted Typescript for its features in the editor. Simple JS would not have been a terrible choice.
+I wanted Typescript for its features in the editor. Simple JS would have been a terrible choice.
 
 I chose Cypress since we are both most familiar with it.
 Furthermore, Cypress bundles Chai and Mocha out of the box. https://docs.cypress.io/guides/references/bundled-libraries 
