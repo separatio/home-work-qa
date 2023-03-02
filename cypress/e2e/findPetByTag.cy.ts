@@ -33,18 +33,48 @@ describe('GET /pet/findByTags', () => {
 
     const requests = ['@taggedPets0', '@taggedPets5', '@thiswillneverexist']
 
-    requests.forEach(alias => {
+    requests.forEach((alias) => {
       cy.get(alias).then((response: any) => {
         expect(response.status).to.eq(200)
 
         expect(response.body).to.deep.equal([])
       })
-    });
+    })
   })
 
   it('returns existing tags and ignores inexsting ones', () => {
     cy.request(`${tagsUrl}tags=tag1&tags=thiswillneverexist`).as('taggedPets')
 
-    cy.get('@taggedPets').then((response: any) => { })
+    cy.fixture('findPetByTag/tag1.json').then((json) => {
+      cy.get('@taggedPets').then((response: any) => {
+        expect(response.status).to.eq(200)
+
+        expect(response.body).to.deep.equal(json)
+      })
+    })
+  })
+
+  context('without the tags parameter', () => {
+    it('returns an error message', () => {
+      cy.request({ url: 'api/v3/pet/findByTags', failOnStatusCode: false }).as(
+        'missingTagsParameter'
+      )
+      cy.request({
+        url: 'api/v3/pet/findByTags?incorrectParameter="tag1"',
+        failOnStatusCode: false,
+      }).as('otherParameters')
+
+      cy.get('@missingTagsParameter').then((response: any) => {
+        expect(response.status).to.eq(400)
+
+        expect(response.body).to.equal('No tags provided. Try again?')
+      })
+
+      cy.get('@otherParameters').then((response: any) => {
+        expect(response.status).to.eq(400)
+
+        expect(response.body).to.equal('No tags provided. Try again?')
+      })
+    })
   })
 })
