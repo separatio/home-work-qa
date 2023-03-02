@@ -7,7 +7,7 @@ describe('GET /pet/findByTags', () => {
 
     cy.fixture('findPetByTag/tag1.json').then((json) => {
       cy.get('@taggedPets').then((response: any) => {
-        expect(response.status).to.eq(200)
+        expect(response.status).to.equal(200)
 
         expect(response.body).to.deep.equal(json)
       })
@@ -19,7 +19,7 @@ describe('GET /pet/findByTags', () => {
 
     cy.fixture('findPetByTag/tag1_tag2.json').then((json) => {
       cy.get('@taggedPets').then((response: any) => {
-        expect(response.status).to.eq(200)
+        expect(response.status).to.equal(200)
 
         expect(response.body).to.deep.equal(json)
       })
@@ -35,7 +35,7 @@ describe('GET /pet/findByTags', () => {
 
     requests.forEach((alias) => {
       cy.get(alias).then((response: any) => {
-        expect(response.status).to.eq(200)
+        expect(response.status).to.equal(200)
 
         expect(response.body).to.deep.equal([])
       })
@@ -47,7 +47,7 @@ describe('GET /pet/findByTags', () => {
 
     cy.fixture('findPetByTag/tag1.json').then((json) => {
       cy.get('@taggedPets').then((response: any) => {
-        expect(response.status).to.eq(200)
+        expect(response.status).to.equal(200)
 
         expect(response.body).to.deep.equal(json)
       })
@@ -65,13 +65,13 @@ describe('GET /pet/findByTags', () => {
       }).as('otherParameters')
 
       cy.get('@missingTagsParameter').then((response: any) => {
-        expect(response.status).to.eq(400)
+        expect(response.status).to.equal(400)
 
         expect(response.body).to.equal('No tags provided. Try again?')
       })
 
       cy.get('@otherParameters').then((response: any) => {
-        expect(response.status).to.eq(400)
+        expect(response.status).to.equal(400)
 
         expect(response.body).to.equal('No tags provided. Try again?')
       })

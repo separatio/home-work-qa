@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker'
 
-function createNewPet(): Pet {
+export default function createNewPet(): Pet {
   const statusValues: PetStatus[] = ['available', 'pending', 'sold']
 
   return {
