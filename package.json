@@ -6,8 +6,10 @@
   "author": "Alex Radulescu <allex.radulescu91@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "yarn eslint && yarn prettier",
-    "prettier": "prettier --write ."
+    "lint": "yarn eslint && yarn prettier && yarn tsc --noEmit",
+    "prettier": "prettier --write . --loglevel warn",
+    "cypress:run": "yarn cypress run",
+    "cypress:open": "yarn cypress open"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.0.0",
@@ -16,6 +18,6 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-import": "^2.25.2",
     "prettier": "2.8.4",
-    "typescript": "*"
+    "typescript": "^4.9.5"
   }
 }
