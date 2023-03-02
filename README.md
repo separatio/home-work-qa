@@ -1,25 +1,24 @@
 ## YourBourse Candidate Evaluation (QA Automation)
 
-
 Your task is to create a small working automation framework using [Cypress](https://docs.cypress.io/).
 
-The framework should run against a public PetStore3 API  (the definition can be found here: [Swagger UI] (https://petstore3.swagger.io/))
+The framework should run against a public PetStore3 API (the definition can be found here: [Swagger UI] (https://petstore3.swagger.io/))
 and execute the required test cases.
 
 ## Scope
 
 1. Prepare a list of test cases covering three operations:
 
-   - Create a pet `/pet` 
- ![image](https://user-images.githubusercontent.com/109854076/220346748-6ed5693c-e5f5-415c-825a-66b5e592f569.png)
+   - Create a pet `/pet`
+     ![image](https://user-images.githubusercontent.com/109854076/220346748-6ed5693c-e5f5-415c-825a-66b5e592f569.png)
 
    - Modify the existing pet `/pet`
- ![image](https://user-images.githubusercontent.com/109854076/220346795-dac3402f-a371-4509-82ef-3e629b4c427c.png)
+     ![image](https://user-images.githubusercontent.com/109854076/220346795-dac3402f-a371-4509-82ef-3e629b4c427c.png)
 
    - Search for the specified pet by a tag `/pet/findByTag`
-  ![image](https://user-images.githubusercontent.com/109854076/220346838-acd4547a-871f-403b-997e-588df03ad1c3.png)
+     ![image](https://user-images.githubusercontent.com/109854076/220346838-acd4547a-871f-403b-997e-588df03ad1c3.png)
 
-2.  Create a test framework that can be executed, and it should verify that all test cases are adequately handled.
+2. Create a test framework that can be executed, and it should verify that all test cases are adequately handled.
 
 3. API calls should be made from Cypress using application/json content type
 
@@ -28,7 +27,7 @@ and execute the required test cases.
 1. Authorization is not required in this task
 1. Don’t record any video on how to run the solution
 
-------
+---
 
 ### Additional Comments
 
