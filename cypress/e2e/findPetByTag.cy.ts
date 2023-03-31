@@ -1,3 +1,6 @@
+import tag1 from '../fixtures/findPetByTag/tag1.json'
+import tag1tag2 from '../fixtures/findPetByTag/tag1_tag2.json'
+
 // GET /api/v3/pet/findByTags
 const tagsUrl = 'api/v3/pet/findByTags?'
 
@@ -5,24 +8,20 @@ describe('GET /pet/findByTags', () => {
   it('supports one existing tag', () => {
     cy.request(`${tagsUrl}tags=tag1`).as('taggedPets')
 
-    cy.fixture('findPetByTag/tag1.json').then((json) => {
-      cy.get('@taggedPets').then((response: any) => {
-        expect(response.status).to.equal(200)
+    cy.get('@taggedPets').then((response: any) => {
+      expect(response.status).to.equal(200)
 
-        expect(response.body).to.deep.equal(json)
-      })
+      expect(response.body).to.deep.equal(tag1)
     })
   })
 
   it('supports more existing tags', () => {
     cy.request(`${tagsUrl}tags=tag1&tags=tag2`).as('taggedPets')
 
-    cy.fixture('findPetByTag/tag1_tag2.json').then((json) => {
-      cy.get('@taggedPets').then((response: any) => {
-        expect(response.status).to.equal(200)
+    cy.get('@taggedPets').then((response: any) => {
+      expect(response.status).to.equal(200)
 
-        expect(response.body).to.deep.equal(json)
-      })
+      expect(response.body).to.deep.equal(tag1tag2)
     })
   })
 
@@ -45,6 +44,7 @@ describe('GET /pet/findByTags', () => {
   it('returns existing tags and ignores inexsting ones', () => {
     cy.request(`${tagsUrl}tags=tag1&tags=thiswillneverexist`).as('taggedPets')
 
+    // I left this only to exemplify it can be used like this too
     cy.fixture('findPetByTag/tag1.json').then((json) => {
       cy.get('@taggedPets').then((response: any) => {
         expect(response.status).to.equal(200)
